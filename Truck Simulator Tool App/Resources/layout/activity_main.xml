@@ -5,53 +5,94 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="MissingDimension" >
+    tools:ignore="Suspicious0dp">
 
     <GridLayout
         android:layout_weight="80"
-        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_width="match_parent"
         android:columnCount="5"
         android:id="@+id/gridLayout1">
-        <TextView
-            style="@style/Status_Text"
-            android:text="Keine Verbindung zum Server" />
-        <Space
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:layout_height="match_parent"
             android:layout_width="0dp"
+            android:background="@drawable/Border3">
+            <TextView
+                style="@style/Status_Text"
+                android:text="Keine Verbindung zum Server" />
+        </LinearLayout>
+        <Space
             android:layout_columnWeight="0.007"
             android:layout_height="match_parent"
-            android:background="@android:color/white"/>   
-        <TextView
-            style="@style/Status_Text"
-            android:text="Keinen aktiven Auftrag" />
-        <Space
             android:layout_width="0dp"
-            android:layout_columnWeight="0.007"
+            android:background="@android:color/white" />
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/white"/>  
-        <TextView
-            style="@style/Status_Text"
-            android:text="Keine Schicht geladen" />
+            android:background="@drawable/Border3">
+            <TextView
+                style="@style/Status_Text"
+                android:text="Keinen aktiven Auftrag" />
+        </LinearLayout>
+        <Space
+            android:layout_columnWeight="0.007"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/Border3">
+            <TextView
+                style="@style/Status_Text"
+                android:text="Keine Schicht geladen" />
+        </LinearLayout>
     </GridLayout>
+    
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20" >
+    </Space>
      
     <GridLayout
-        android:layout_marginTop="30dp"
+        android:background="@drawable/Border1"
         android:layout_weight="80"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:columnCount="3"
+        android:columnCount="1"
         android:rowCount="3"
         android:id="@+id/gridLayout2">
+        <GridLayout
+            android:background="@color/Brown"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="30"
+            android:columnCount="3"
+            android:rowCount="1">
             <TextView
                 style="@style/Arrival_TextColumn"
+                android:textStyle="bold"
                 android:text="Ankunft ca.:" />
             <TextView
                 style="@style/Arrival_DatetimeColumn"
+                android:textStyle="bold"                
                 android:text="00:00 Uhr" />
             <TextView
                 style="@style/Arrival_TimespanColumn"
+                android:textStyle="bold"                
                 android:text="(0 Min.)" />
-
+        </GridLayout>
+        <GridLayout
+            android:background="@color/Gainsboro"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="30"
+            android:columnCount="3"
+            android:rowCount="1">
             <TextView
                 style="@style/Arrival_TextColumn"
                 android:text="Beste Ankunft:" />
@@ -61,7 +102,14 @@
             <TextView
                 style="@style/Arrival_TimespanColumn"
                 android:text="(0 Min.)" />
-
+        </GridLayout>
+        <GridLayout
+            android:background="@color/DarkGray"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="20"
+            android:columnCount="3"
+            android:rowCount="1">
             <TextView
                 style="@style/Arrival_TextColumn"
                 android:text="Geplante Ankunft:" />
@@ -71,174 +119,296 @@
             <TextView
                 style="@style/Arrival_TimespanColumn"
                 android:text="(0 Min.)" />
+        </GridLayout>
     </GridLayout>
 
-    <GridLayout
-        android:layout_marginTop="30dp"
-        android:layout_weight="260"
+    <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:rowCount="7"
-        android:columnCount="1"
-        android:id="@+id/linearLayout1">
-        <TextView
-            android:textColor="@android:color/black"
-            android:autoSizeTextType="uniform"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_rowWeight="50"
-            android:background="#c7c7c7"
-            android:gravity="center"
-            android:textAlignment="gravity"
-            android:textSize="20dp"
-            android:text="Auftragsinformationen"/>
-        <TextView
-            style="@style/JobInfo_Text"
-            android:text="Pause in:"/>
-        <TextView
-            style="@style/JobInfo_Text"
-            android:text="Restzeit:"/>
-        <TextView
-            style="@style/JobInfo_Text"
-            android:text="Leerfahrt"/>
-        <TextView
-            style="@style/JobInfo_Text"
-            android:text="0 t"/>
-        <TextView
-            style="@style/JobInfo_Text"
-            android:text="0€ (0 €/km)"/>
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_rowWeight="18"
-            android:background="@android:color/holo_red_dark"/>
-    </GridLayout>
+        android:layout_weight="20" >
+    </Space>
 
     <GridLayout
-        android:layout_marginTop="30dp"
-        android:layout_weight="120"
+        android:background="@drawable/Border2"
+        android:layout_weight="240"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:rowCount="3"
-        android:columnCount="1">
-        <GridLayout
-            android:layout_rowWeight="50"
+        android:columnCount="1"
+        android:id="@+id/linearLayout1">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:rowCount="2"
-            android:columnCount="2">
+            android:layout_rowWeight="30"
+            android:orientation="horizontal">
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
                 android:textColor="@android:color/black"
-                android:gravity="center_vertical|left"
-                android:textAlignment="gravity"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:autoSizeTextType="uniform"
-                android:text="Upon Newcastle"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical|right"
-                android:textAlignment="gravity"
-                android:autoSizeTextType="uniform"
-                android:text="Upon Newcastle"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical|left"
-                android:textAlignment="gravity"
-                android:autoSizeTextType="uniform"
-                android:text="Eurogoodies"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical|right"
-                android:textAlignment="gravity"
-                android:autoSizeTextType="uniform"
-                android:text="Transinet"/>
-            
-        </GridLayout>
-        <ImageView
-            android:id="@+id/imageView1"   
-            android:layout_width="match_parent"
-            android:layout_height="0dp" 
-            android:background="@android:color/holo_green_light"
-            android:layout_rowWeight="23" />
-        <GridLayout
-            android:layout_rowWeight="20"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="5dp"
-            android:rowCount="1"
-            android:columnCount="5">
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_columnWeight="25"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical|left"
-                android:textAlignment="gravity"
-                android:autoSizeTextType="uniform"
-                android:text="0,00%"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_columnWeight="50"
-                android:background="@android:color/holo_red_dark"
-                android:textColor="@android:color/black"
                 android:gravity="center"
                 android:textAlignment="gravity"
-                android:autoSizeTextType="uniform"
-                android:text="Zeitpuffer: 0 Min."/>
+                android:textSize="20dp"
+                android:text="Auftragsinformationen"
+                android:autoSizeMinTextSize="1dp"/>
+        </LinearLayout>
+        <GridLayout
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"            
+            android:background="@color/Gainsboro"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="40" 
+            android:rowCount="5"
+            android:columnCount="1">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_rowWeight="0.3"/>
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_columnWeight="25"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical|right"
-                android:textAlignment="gravity"
-                android:autoSizeTextType="uniform"
-                android:text="Noch 0 km" />
+                style="@style/JobInfo_Text"     
+                android:textColor="@color/Brown"
+                android:text="Pause in: 0 Min."/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_rowWeight="0.2"/>
+            <TextView
+                style="@style/JobInfo_Text"     
+                android:textColor="@color/Brown"
+                android:text="Restzeit: 0 Min."/>
+             <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_rowWeight="0.3"/>
+        </GridLayout>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="60" 
+            android:rowCount="5"
+            android:columnCount="1">
+            <TextView
+                style="@style/JobInfo_Text"
+                android:text="Leerfahrt"/>
+            <TextView
+                style="@style/JobInfo_Text"
+                android:text="0 t"/>
+            <TextView
+                style="@style/JobInfo_Text"
+                android:text="0€ (0 €/km)"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_rowWeight="0.4"/>
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Brown"/>
         </GridLayout>
     </GridLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20" >
+    </Space>
+
+    <LinearLayout
+        android:background="@drawable/Border1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="105">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="3"
+            android:columnCount="1">
+            <GridLayout
+                android:layout_rowWeight="45"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:rowCount="2"
+                android:columnCount="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical|left"
+                    android:textAlignment="gravity"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:text="Upon Newcastle"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:textAlignment="gravity"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:text="Upon Newcastle"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical|left"
+                    android:textAlignment="gravity"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:text="Eurogoodies"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical|right"
+                    android:textAlignment="gravity"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:layout_marginRight="3dp"
+                    android:text="Transinet"/>
+
+            </GridLayout>
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@color/LimeGreen"
+                android:layout_rowWeight="22" />
+            <GridLayout
+                android:layout_rowWeight="19"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:rowCount="1"
+                android:columnCount="5">
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="24"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical|left"
+                    android:textAlignment="gravity"
+                    android:layout_marginBottom="1dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:text="0,00%"/>
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="58"
+                    android:background="@color/Brown"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:textAlignment="gravity"
+                    android:layout_marginBottom="1dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:text="Zeitpuffer: 0 Min."/>
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="24"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical|right"
+                    android:textAlignment="gravity"
+                    android:layout_marginBottom="1dp"
+                    android:autoSizeTextType="uniform"
+                    android:layout_marginRight="3dp"
+                    android:autoSizeMinTextSize="1dp"
+                    android:text="Noch 0 km" />
+            </GridLayout>
+        </GridLayout>
+    </LinearLayout>
     
-    <GridLayout
-        android:layout_marginTop="20dp" 
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="20"
-    android:background="#C9C9C9"
-    android:rowCount="4"
-    android:columnCount="1">
-    <TextView
-        style="@style/MiscInfo_Text"
-        android:text="Nächstes Schichtereignis: [Schichtbeginn]   22:00 Uhr, Dienstag" />
-    <TextView
-        style="@style/MiscInfo_Text"
-        android:text="" />
-    <TextView
-        style="@style/MiscInfo_Text"
-        android:text="" />
-    <TextView
-        style="@style/MiscInfo_Text"
-        android:text="" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20" >
+    </Space>
+    
+    <GridLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="110"
+        android:background="@color/DarkGray"
+        android:rowCount="3"
+        android:columnCount="1">
+        <TextView 
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_rowWeight="38"
+        android:textStyle="bold"
+        android:gravity="center" 
+        android:textAlignment="gravity"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="1dp"
+        android:text="[Schichtbeginn]   22:00 Uhr, Dienstag" />
+        <GridLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_rowWeight="77"
+        android:background="@color/Gainsboro"  
+        android:rowCount="3"
+        android:columnCount="2">
+        <TextView
+            style="@style/MiscInfo_Text"
+            android:gravity="left"    
+            android:layout_marginLeft="3dp"                
+            android:text="Nächste Pause in:" />
+        <TextView
+            style="@style/MiscInfo_Text"
+            android:gravity="right"  
+            android:layout_marginRight="3dp"
+            android:text="10 Std. 20 Min." />
+        <TextView
+            style="@style/MiscInfo_Text"
+            android:layout_marginLeft="3dp"  
+            android:gravity="left"    
+            android:text="Übrige Schichtlänge:" />
+        <TextView
+            style="@style/MiscInfo_Text"
+            android:layout_marginRight="3dp"
+            android:gravity="right"        
+            android:text="20 Std. 52 Min." />
+        </GridLayout>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="33"
+            android:background="@color/Gainsboro"  
+            android:rowCount="1"
+            android:columnCount="2">
+            <TextView
+                style="@style/MiscInfo_Text"
+                android:layout_marginLeft="3dp"
+                android:gravity="left"      
+                android:text="Zeitskalierung:" />
+            <TextView
+                style="@style/MiscInfo_Text" 
+                android:layout_marginRight="3dp"
+                android:gravity="right"              
+                android:text="19" />
+        </GridLayout>
     </GridLayout>
-        
-     
+         
 </LinearLayout>

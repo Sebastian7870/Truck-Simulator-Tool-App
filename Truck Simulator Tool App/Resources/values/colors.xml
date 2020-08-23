@@ -3,4 +3,9 @@
     <color name="colorPrimary">#2c3e50</color>
     <color name="colorPrimaryDark">#1B3147</color>
     <color name="colorAccent">#3498db</color>
+
+    <color name="Brown">#A52A2A</color>
+    <color name="LimeGreen">#32CD32</color>
+    <color name="Gainsboro">#DCDCDC</color>
+    <color name="DarkGray">#A9A9A9</color>
 </resources>
