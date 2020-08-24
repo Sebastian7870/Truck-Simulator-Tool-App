@@ -2,5 +2,6 @@
 {
     class TST_ServerData
     {
+
     }
 }

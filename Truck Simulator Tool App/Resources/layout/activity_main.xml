@@ -8,44 +8,47 @@
     tools:ignore="Suspicious0dp">
 
     <GridLayout
+        android:background="@drawable/Border1"
         android:layout_weight="80"
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:columnCount="5"
+        android:rowCount="1"
         android:id="@+id/gridLayout1">
         <LinearLayout
             android:layout_columnWeight="1"
             android:layout_height="match_parent"
             android:layout_width="0dp"
-            android:background="@drawable/Border3">
+            android:layout_marginBottom="1dp"
+            android:background="@color/Brown">
             <TextView
                 style="@style/Status_Text"
                 android:text="Keine Verbindung zum Server" />
         </LinearLayout>
         <Space
-            android:layout_columnWeight="0.007"
-            android:layout_height="match_parent"
             android:layout_width="0dp"
-            android:background="@android:color/white" />
+            android:layout_height="match_parent"
+            android:layout_columnWeight="0.007"/>
         <LinearLayout
             android:layout_columnWeight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@drawable/Border3">
+            android:layout_marginBottom="1dp"            
+            android:background="@color/Brown">
             <TextView
                 style="@style/Status_Text"
                 android:text="Keinen aktiven Auftrag" />
         </LinearLayout>
         <Space
-            android:layout_columnWeight="0.007"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/white"/>
+            android:layout_columnWeight="0.007"/>
         <LinearLayout
             android:layout_columnWeight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@drawable/Border3">
+            android:layout_marginBottom="1dp"            
+            android:background="@color/Brown">
             <TextView
                 style="@style/Status_Text"
                 android:text="Keine Schicht geladen" />
@@ -72,7 +75,8 @@
             android:layout_height="0dp"
             android:layout_rowWeight="30"
             android:columnCount="3"
-            android:rowCount="1">
+            android:rowCount="1"
+            android:layout_marginTop="1dp">
             <TextView
                 style="@style/Arrival_TextColumn"
                 android:textStyle="bold"
@@ -109,7 +113,8 @@
             android:layout_height="0dp"
             android:layout_rowWeight="20"
             android:columnCount="3"
-            android:rowCount="1">
+            android:rowCount="1"
+            android:layout_marginBottom="1dp">
             <TextView
                 style="@style/Arrival_TextColumn"
                 android:text="Geplante Ankunft:" />
@@ -137,10 +142,12 @@
         android:columnCount="1"
         android:id="@+id/linearLayout1">
         <LinearLayout
+            android:background="@color/DarkGray"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_rowWeight="30"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="1dp">
             <TextView
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="20dp"
@@ -154,9 +161,7 @@
                 android:text="Auftragsinformationen"
                 android:autoSizeMinTextSize="1dp"/>
         </LinearLayout>
-        <GridLayout
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"            
+        <GridLayout          
             android:background="@color/Gainsboro"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -185,11 +190,13 @@
                 android:layout_rowWeight="0.3"/>
         </GridLayout>
         <GridLayout
+            android:background="@color/DarkGray"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_rowWeight="60" 
-            android:rowCount="5"
-            android:columnCount="1">
+            android:rowCount="6"
+            android:columnCount="1"
+            android:layout_marginBottom="1dp">
             <TextView
                 style="@style/JobInfo_Text"
                 android:text="Leerfahrt"/>
@@ -202,13 +209,28 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_rowWeight="0.4"/>
-            <ImageView
-                android:id="@+id/imageView1"
+                android:layout_rowWeight="0.2"/>
+            <LinearLayout
+                android:background="@drawable/Border1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp">
+                <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"                
                 android:background="@color/Brown"/>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_rowWeight="0.2"/>
         </GridLayout>
     </GridLayout>
 
@@ -224,6 +246,9 @@
         android:layout_height="0dp"
         android:layout_weight="105">
         <GridLayout
+            android:background="@color/Gainsboro"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:rowCount="3"
@@ -284,19 +309,29 @@
                     android:text="Transinet"/>
 
             </GridLayout>
-            <ImageView
-                android:id="@+id/imageView1"
+            <LinearLayout
+                android:background="@drawable/Border1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_rowWeight="22"
                 android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:background="@color/LimeGreen"
-                android:layout_rowWeight="22" />
+                android:layout_marginRight="3dp">
+                <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp" 
+                android:background="@color/LimeGreen" />
+            </LinearLayout>
             <GridLayout
                 android:layout_rowWeight="19"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:rowCount="1"
                 android:columnCount="5">
                 <TextView
@@ -316,7 +351,7 @@
                     android:layout_width="0dp"
                     android:layout_columnWeight="58"
                     android:background="@color/Brown"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/Gainsboro"
                     android:gravity="center"
                     android:textAlignment="gravity"
                     android:layout_marginBottom="1dp"
@@ -349,11 +384,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="110"
-        android:background="@color/DarkGray"
+        android:background="@drawable/Border2"
         android:rowCount="3"
         android:columnCount="1">
         <TextView 
         android:textColor="@android:color/black"
+        android:layout_marginTop="1dp"
+        android:background="@color/DarkGray"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_rowWeight="38"
@@ -395,7 +432,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_rowWeight="33"
-            android:background="@color/Gainsboro"  
+            android:background="@color/DarkGray"  
             android:rowCount="1"
             android:columnCount="2">
             <TextView
@@ -410,5 +447,6 @@
                 android:text="19" />
         </GridLayout>
     </GridLayout>
-         
+  
+
 </LinearLayout>
