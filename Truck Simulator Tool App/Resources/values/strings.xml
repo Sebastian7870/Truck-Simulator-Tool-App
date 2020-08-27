@@ -2,4 +2,31 @@
 <resources>
     <string name="app_name">Truck Simulator Tool App</string>
     <string name="action_settings">Settings</string>
+
+  <string name="textView_connectionStatus">Keine Verbindung zum Server</string>
+  <string name="textView_contractStatus">Keinen aktiven Auftrag</string>
+  <string name="textView_shiftStatus">Keine Schicht geladen</string>
+  <string name="textView_currentArrival_dt">00:00 Uhr</string>
+  <string name="textView_currentArrival_ts">(0 Min.)</string>
+  <string name="textView_currentBestArrival_dt">00:00 Uhr</string>
+  <string name="textView_currentBestArrival_ts">(0 Min.)</string>
+  <string name="textView_bestArrival_dt">00:00 Uhr</string>
+  <string name="textView_bestArrival_ts">(0 Min.)</string>
+  <string name="textView_nextPauseTime">Pause in: 0 Min.</string>
+  <string name="textView_remainingTime">Restzeit: 0 Min.</string>
+  <string name="textView_jobInfoFreight">Leerfahrt</string>
+  <string name="textView_jobInfoMass">0 t</string>
+  <string name="textView_jobInfoIncome">0 € (0€/km)</string>
+  <string name="textView_source">\n</string>
+  <string name="textView_destination">\n</string>
+  <string name="textView_progressBarPercentage">0,00 %</string>
+  <string name="textView_timebuffer">Zeitpuffer: 0 Min.</string>
+  <string name="textView_remainingDistance">Noch 0 km</string>
+  <string name="textView_timescale1">Zeitskalierung:</string>
+  <string name="textView_timescale2">-</string>
+  <string name="textView_nextShiftEvent">Nächstes Schichtereignis: ---</string>
+  <string name="textView_nextShiftPause1">Nächste Pause in:</string>
+  <string name="textView_nextShiftPause2">---</string>
+  <string name="textView_shiftTimeLeft1">Übrige Schichtlänge:</string>
+  <string name="textView_shiftTimeLeft2">---</string>
 </resources>

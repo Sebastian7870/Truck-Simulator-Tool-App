@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:ignore="Suspicious0dp">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="?android:attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
     <GridLayout
         android:background="@drawable/Border1"
         android:layout_weight="80"
@@ -16,42 +26,48 @@
         android:rowCount="1"
         android:id="@+id/gridLayout1">
         <LinearLayout
+            android:id="@+id/linearLayout_connectionStatus"
             android:layout_columnWeight="1"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_marginBottom="1dp"
             android:background="@color/Brown">
             <TextView
+                android:id="@+id/textView_connectionStatus"
                 style="@style/Status_Text"
-                android:text="Keine Verbindung zum Server" />
+                android:text="@string/textView_connectionStatus" />
         </LinearLayout>
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_columnWeight="0.007"/>
         <LinearLayout
+            android:id="@+id/linearLayout_contractStatus"
             android:layout_columnWeight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="1dp"            
             android:background="@color/Brown">
             <TextView
+                android:id="@+id/textView_contractStatus"
                 style="@style/Status_Text"
-                android:text="Keinen aktiven Auftrag" />
+                android:text="@string/textView_contractStatus" />
         </LinearLayout>
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_columnWeight="0.007"/>
         <LinearLayout
+            android:id="@+id/linearLayout_shiftStatus"
             android:layout_columnWeight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="1dp"            
             android:background="@color/Brown">
             <TextView
+                android:id="@+id/textView_shiftStatus"
                 style="@style/Status_Text"
-                android:text="Keine Schicht geladen" />
+                android:text="@string/textView_shiftStatus" />
         </LinearLayout>
     </GridLayout>
     
@@ -70,6 +86,7 @@
         android:rowCount="3"
         android:id="@+id/gridLayout2">
         <GridLayout
+            android:id="@+id/gridLayout_currentArrival"
             android:background="@color/Brown"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -82,13 +99,15 @@
                 android:textStyle="bold"
                 android:text="Ankunft ca.:" />
             <TextView
+                android:id="@+id/textView_currentArrival_dt"
                 style="@style/Arrival_DatetimeColumn"
                 android:textStyle="bold"                
-                android:text="00:00 Uhr" />
+                android:text="@string/textView_currentArrival_dt" />
             <TextView
+                android:id="@+id/textView_currentArrival_ts"
                 style="@style/Arrival_TimespanColumn"
                 android:textStyle="bold"                
-                android:text="(0 Min.)" />
+                android:text="@string/textView_currentArrival_ts" />
         </GridLayout>
         <GridLayout
             android:background="@color/Gainsboro"
@@ -101,11 +120,13 @@
                 style="@style/Arrival_TextColumn"
                 android:text="Beste Ankunft:" />
             <TextView
+                android:id="@+id/textView_currentBestArrival_dt"
                 style="@style/Arrival_DatetimeColumn"
-                android:text="00:00 Uhr" />
+                android:text="@string/textView_currentBestArrival_dt" />
             <TextView
+                android:id="@+id/textView_currentBestArrival_ts"
                 style="@style/Arrival_TimespanColumn"
-                android:text="(0 Min.)" />
+                android:text="@string/textView_currentBestArrival_ts" />
         </GridLayout>
         <GridLayout
             android:background="@color/DarkGray"
@@ -119,11 +140,13 @@
                 style="@style/Arrival_TextColumn"
                 android:text="Geplante Ankunft:" />
             <TextView
+                android:id="@+id/textView_bestArrival_dt"
                 style="@style/Arrival_DatetimeColumn"
-                android:text="00:00 Uhr" />
+                android:text="@string/textView_bestArrival_dt" />
             <TextView
+                android:id="@+id/textView_bestArrival_ts"
                 style="@style/Arrival_TimespanColumn"
-                android:text="(0 Min.)" />
+                android:text="@string/textView_bestArrival_ts" />
         </GridLayout>
     </GridLayout>
 
@@ -173,17 +196,19 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="0.3"/>
             <TextView
+                android:id="@+id/textView_nextPauseTime"
                 style="@style/JobInfo_Text"     
                 android:textColor="@color/Brown"
-                android:text="Pause in: 0 Min."/>
+                android:text="@string/textView_nextPauseTime"/>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_rowWeight="0.2"/>
             <TextView
+                android:id="@+id/textView_remainingTime"
                 style="@style/JobInfo_Text"     
                 android:textColor="@color/Brown"
-                android:text="Restzeit: 0 Min."/>
+                android:text="@string/textView_remainingTime"/>
              <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -198,14 +223,17 @@
             android:columnCount="1"
             android:layout_marginBottom="1dp">
             <TextView
+                android:id="@+id/textView_jobInfoFreight"
                 style="@style/JobInfo_Text"
-                android:text="Leerfahrt"/>
+                android:text="@string/textView_jobInfoFreight"/>
             <TextView
+                android:id="@+id/textView_jobInfoMass"
                 style="@style/JobInfo_Text"
-                android:text="0 t"/>
+                android:text="@string/textView_jobInfoMass"/>
             <TextView
+                android:id="@+id/textView_jobInfoIncome"
                 style="@style/JobInfo_Text"
-                android:text="0€ (0 €/km)"/>
+                android:text="@string/textView_jobInfoIncome"/>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -218,13 +246,13 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp">
                 <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/imageView_damage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginRight="1dp"
-                android:layout_marginLeft="1dp"                
+                android:layout_marginLeft="1dp"   
                 android:background="@color/Brown"/>
             </LinearLayout>
             <Space
@@ -257,9 +285,10 @@
                 android:layout_rowWeight="45"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:rowCount="2"
+                android:rowCount="1"
                 android:columnCount="2">
                 <TextView
+                    android:id="@+id/textView_source"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_columnWeight="1"
@@ -270,8 +299,9 @@
                     android:autoSizeTextType="uniform"
                     android:autoSizeMinTextSize="1dp"
                     android:layout_marginLeft="3dp"
-                    android:text="Upon Newcastle"/>
+                    android:text="@string/textView_source"/>
                 <TextView
+                    android:id="@+id/textView_destination"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_columnWeight="1"
@@ -282,32 +312,7 @@
                     android:textAlignment="gravity"
                     android:autoSizeTextType="uniform"
                     android:autoSizeMinTextSize="1dp"
-                    android:text="Upon Newcastle"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:textColor="@android:color/black"
-                    android:gravity="center_vertical|left"
-                    android:textAlignment="gravity"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="1dp"
-                    android:layout_marginLeft="3dp"
-                    android:text="Eurogoodies"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:textColor="@android:color/black"
-                    android:gravity="center_vertical|right"
-                    android:textAlignment="gravity"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="1dp"
-                    android:layout_marginRight="3dp"
-                    android:text="Transinet"/>
-
+                    android:text="@string/textView_destination"/>
             </GridLayout>
             <LinearLayout
                 android:background="@drawable/Border1"
@@ -317,7 +322,7 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp">
                 <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/imageView_distance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp"
@@ -335,6 +340,7 @@
                 android:rowCount="1"
                 android:columnCount="5">
                 <TextView
+                    android:id="@+id/textView_progressBarPercentage"
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
                     android:layout_columnWeight="24"
@@ -345,8 +351,9 @@
                     android:autoSizeTextType="uniform"
                     android:autoSizeMinTextSize="1dp"
                     android:layout_marginLeft="3dp"
-                    android:text="0,00%"/>
+                    android:text="@string/textView_progressBarPercentage"/>
                 <TextView
+                    android:id="@+id/textView_timebuffer"
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
                     android:layout_columnWeight="58"
@@ -357,8 +364,9 @@
                     android:layout_marginBottom="1dp"
                     android:autoSizeTextType="uniform"
                     android:autoSizeMinTextSize="1dp"
-                    android:text="Zeitpuffer: 0 Min."/>
+                    android:text="@string/textView_timebuffer"/>
                 <TextView
+                    android:id="@+id/textView_remainingDistance"
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
                     android:layout_columnWeight="24"
@@ -369,7 +377,7 @@
                     android:autoSizeTextType="uniform"
                     android:layout_marginRight="3dp"
                     android:autoSizeMinTextSize="1dp"
-                    android:text="Noch 0 km" />
+                    android:text="@string/textView_remainingDistance" />
             </GridLayout>
         </GridLayout>
     </LinearLayout>
@@ -381,72 +389,78 @@
     </Space>
     
     <GridLayout 
+        android:id="@+id/gridLayout_bottomData"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="110"
+        android:layout_weight="95"
         android:background="@drawable/Border2"
-        android:rowCount="3"
+        android:rowCount="2"
         android:columnCount="1">
-        <TextView 
+        <TextView
+        android:id="@+id/textView_nextShiftEvent"
         android:textColor="@android:color/black"
         android:layout_marginTop="1dp"
         android:background="@color/DarkGray"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_rowWeight="38"
+        android:layout_rowWeight="3"
         android:textStyle="bold"
         android:gravity="center" 
         android:textAlignment="gravity"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="1dp"
-        android:text="[Schichtbeginn]   22:00 Uhr, Dienstag" />
+        android:text="@string/textView_nextShiftEvent" />
         <GridLayout 
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_rowWeight="77"
+        android:layout_rowWeight="6"
         android:background="@color/Gainsboro"  
-        android:rowCount="3"
+        android:rowCount="2"
         android:columnCount="2">
         <TextView
             style="@style/MiscInfo_Text"
             android:gravity="left"    
             android:layout_marginLeft="3dp"                
-            android:text="Nächste Pause in:" />
+            android:text="@string/textView_nextShiftPause1" />
         <TextView
+            android:id="@+id/textView_nextShiftPause"
             style="@style/MiscInfo_Text"
             android:gravity="right"  
             android:layout_marginRight="3dp"
-            android:text="10 Std. 20 Min." />
+            android:text="@string/textView_nextShiftPause2" />
         <TextView
             style="@style/MiscInfo_Text"
             android:layout_marginLeft="3dp"  
             android:gravity="left"    
-            android:text="Übrige Schichtlänge:" />
+            android:text="@string/textView_shiftTimeLeft1" />
         <TextView
+            android:id="@+id/textView_shiftTimeLeft"
             style="@style/MiscInfo_Text"
             android:layout_marginRight="3dp"
             android:gravity="right"        
-            android:text="20 Std. 52 Min." />
-        </GridLayout>
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_rowWeight="33"
-            android:background="@color/DarkGray"  
-            android:rowCount="1"
-            android:columnCount="2">
-            <TextView
-                style="@style/MiscInfo_Text"
-                android:layout_marginLeft="3dp"
-                android:gravity="left"      
-                android:text="Zeitskalierung:" />
-            <TextView
-                style="@style/MiscInfo_Text" 
-                android:layout_marginRight="3dp"
-                android:gravity="right"              
-                android:text="19" />
-        </GridLayout>
+            android:text="@string/textView_shiftTimeLeft2" />
+        </GridLayout>   
     </GridLayout>
-  
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:background="@color/DarkGray"  
+        android:rowCount="1"
+        android:columnCount="2">
+        <TextView
+            style="@style/MiscInfo_Text"
+            android:layout_marginLeft="3dp"
+            android:gravity="left"      
+            android:text="@string/textView_timescale1" />
+        <TextView
+            android:id="@+id/textView_timescale"
+            style="@style/MiscInfo_Text" 
+            android:layout_marginRight="3dp"
+            android:gravity="right"              
+            android:text="@string/textView_timescale2" />
+    </GridLayout>
 
 </LinearLayout>

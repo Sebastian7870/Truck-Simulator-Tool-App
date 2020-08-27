@@ -62,11 +62,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="TruckSimulatorToolApp\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="TST_ServerData.cs" />
+    <Compile Include="TruckSimulatorToolApp\Json\Settings.cs" />
+    <Compile Include="TruckSimulatorToolApp\Json\TST_ServerData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -118,10 +118,93 @@
     <AndroidResource Include="Resources\drawable\Border1.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_port.xml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-hdpi\baseline_signal_wifi_4_bar_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_4_bar_white_18.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_4_bar_white_24.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_4_bar_white_36.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_4_bar_white_48.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_4_bar_white_18.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_4_bar_white_24.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_4_bar_white_36.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_4_bar_white_48.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_4_bar_white_18.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_4_bar_white_24.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_4_bar_white_36.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_4_bar_white_48.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_4_bar_white_18.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_4_bar_white_24.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_4_bar_white_36.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_4_bar_white_48.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_4_bar_white_18.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_4_bar_white_24.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_4_bar_white_36.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_4_bar_white_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu_toolbar.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_off_white_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_off_white_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_off_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_signal_wifi_off_white_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_off_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_off_white_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_off_white_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_signal_wifi_off_white_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_off_white_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_off_white_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_off_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_signal_wifi_off_white_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_off_white_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_off_white_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_off_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\baseline_signal_wifi_off_white_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_off_white_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_off_white_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_off_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\baseline_signal_wifi_off_white_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu_toolbar2.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
