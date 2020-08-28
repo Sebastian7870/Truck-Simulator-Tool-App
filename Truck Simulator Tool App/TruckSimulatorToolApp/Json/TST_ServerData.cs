@@ -28,9 +28,9 @@
             public string timebufferText { get; set; }
             public string remainingDistanceText { get; set; }
             public string timescaleText { get; set; }
-            public float pb_distanceProgress { get; set; }
+            public double pb_distanceProgress { get; set; }
             public string pb_distanceText { get; set; }
-            public float pb_damageProgress { get; set; }
+            public double pb_damageProgress { get; set; }
             public string pb_damageText { get; set; }
             public bool hasShift { get; set; }
             public string nextShiftEvent { get; set; }

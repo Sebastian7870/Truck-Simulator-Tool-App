@@ -5,14 +5,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="Suspicious0dp">
+    tools:ignore="Suspicious0dp"
+    android:background="#808080">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
@@ -238,23 +239,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_rowWeight="0.2"/>
-            <LinearLayout
+            <FrameLayout
                 android:background="@drawable/Border1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp">
-                <ImageView
-                android:id="@+id/imageView_damage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginLeft="1dp"   
-                android:background="@color/Brown"/>
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp">
+                <ProgressBar
+                    android:id="@+id/progressBar_damage"
+                    style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                    android:scaleY="50"
+                    android:progress="0"
+                    android:progressTint="@color/Brown"
+                    android:progressBackgroundTint="@android:color/white"    
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView_progressBarDamage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/textView_progressBarDamage"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:textAlignment="gravity"/>
+            </FrameLayout>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -314,23 +337,45 @@
                     android:autoSizeMinTextSize="1dp"
                     android:text="@string/textView_destination"/>
             </GridLayout>
-            <LinearLayout
+            <FrameLayout
                 android:background="@drawable/Border1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_rowWeight="22"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp">
-                <ImageView
-                android:id="@+id/imageView_distance"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginLeft="1dp" 
-                android:background="@color/LimeGreen" />
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp">
+                <ProgressBar
+                    android:id="@+id/progressBar_distance"
+                    style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                    android:scaleY="50"
+                    android:progress="0"
+                    android:progressTint="@color/LimeGreen"
+                    android:progressBackgroundTint="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView_progressBarDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/textView_progressBarDistance"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="1dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:textAlignment="gravity"/>
+            </FrameLayout>
             <GridLayout
                 android:layout_rowWeight="19"
                 android:layout_width="match_parent"

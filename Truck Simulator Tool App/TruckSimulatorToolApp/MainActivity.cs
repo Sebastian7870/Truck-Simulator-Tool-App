@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Bluetooth.LE;
 using Android.Content;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
@@ -13,6 +14,7 @@ using Android.Widget;
 using Newtonsoft.Json;
 using Org.Apache.Http;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -58,10 +60,8 @@ namespace Truck_Simulator_Tool_App
         TextView jobInfoFreight;
         TextView jobInfoMass;
         TextView jobInfoIncome;
-        ImageView imageView_damage;
         TextView source;
         TextView destination;
-        ImageView imageView_distance;
         TextView progressBarPercentage;
         TextView timebuffer;
         TextView remainingDistance;
@@ -70,6 +70,10 @@ namespace Truck_Simulator_Tool_App
         TextView nextShiftEvent;
         TextView nextShiftPause;
         TextView shiftTimeLeft;
+        ProgressBar progressBar_damage;
+        ProgressBar progressBar_distance;
+        TextView progressBarDamage;
+        TextView progressBarDistance;
 
         //Variables END
         protected override void OnCreate(Bundle savedInstanceState)
@@ -101,6 +105,8 @@ namespace Truck_Simulator_Tool_App
             timebuffer = FindViewById<TextView>(Resource.Id.textView_timebuffer);
             remainingDistance = FindViewById<TextView>(Resource.Id.textView_remainingDistance);
             timescale = FindViewById<TextView>(Resource.Id.textView_timescale);
+            progressBarDamage = FindViewById<TextView>(Resource.Id.textView_progressBarDamage);
+            progressBarDistance = FindViewById<TextView>(Resource.Id.textView_progressBarDistance);
 
             linearLayout_connectionStatus = FindViewById<LinearLayout>(Resource.Id.linearLayout_connectionStatus);
             linearLayout_contractStatus = FindViewById<LinearLayout>(Resource.Id.linearLayout_contractStatus);
@@ -108,8 +114,8 @@ namespace Truck_Simulator_Tool_App
             gridLayout_currentArrival = FindViewById<GridLayout>(Resource.Id.gridLayout_currentArrival);
             gridLayout_bottomData = FindViewById<GridLayout>(Resource.Id.gridLayout_bottomData);
 
-            imageView_damage = FindViewById<ImageView>(Resource.Id.imageView_damage);
-            imageView_distance = FindViewById<ImageView>(Resource.Id.imageView_distance);
+            progressBar_damage = FindViewById<ProgressBar>(Resource.Id.progressBar_damage);
+            progressBar_distance = FindViewById<ProgressBar>(Resource.Id.progressBar_distance);
 
             nextShiftEvent = FindViewById<TextView>(Resource.Id.textView_nextShiftEvent);
             nextShiftPause = FindViewById<TextView>(Resource.Id.textView_nextShiftPause);
@@ -122,10 +128,11 @@ namespace Truck_Simulator_Tool_App
             Android.Content.Res.Resources resources = this.Resources;
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
-            SupportActionBar.Title = resources.GetString(Resource.String.app_name);
+            SupportActionBar.Title = resources.GetString(Resource.String.app_nameLong);
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             if (isConnected == true)
             {
                 MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
@@ -303,11 +310,12 @@ namespace Truck_Simulator_Tool_App
                 jobInfoFreight.Text = tst_serverdata.jobInfo_FreightText;
                 jobInfoMass.Text = tst_serverdata.jobInfo_MassText;
                 jobInfoIncome.Text = tst_serverdata.jobInfo_IncomeText;
-                //ImageView_CustomProgressBar(imageView_damage, Color.White, tst_serverdata.pb_damageProgress, tst_serverdata.pb_damageText, "Microsoft Sans Serif", Brushes.Brown);
+                progressBar_damage.SetProgress((int)(tst_serverdata.pb_damageProgress * 100), true);
+                progressBarDamage.Text = tst_serverdata.pb_damageText;
+                progressBar_distance.SetProgress((int)(tst_serverdata.pb_distanceProgress * 100), true);
+                progressBarDistance.Text = tst_serverdata.pb_distanceText;
                 source.Text = tst_serverdata.sourceText;
                 destination.Text = tst_serverdata.destinationText;
-                //progressBarPercentage.Text = tst_serverdata.progressBarPercentage;
-                ImageView_CustomProgressBar(imageView_distance, Color.White, tst_serverdata.pb_distanceProgress, tst_serverdata.pb_distanceText, "Microsoft Sans Serif", Brushes.LimeGreen);
                 timebuffer.Text = tst_serverdata.timebufferText;
                 remainingDistance.Text = tst_serverdata.remainingDistanceText;
                 timescale.Text = tst_serverdata.timescaleText;
@@ -334,8 +342,9 @@ namespace Truck_Simulator_Tool_App
                     SetStandardValues();
                     Show_AlertMessage(this, "Verbindung zum Server verloren!", "");
                     offlineTicks = 0;
+                    wasConnected = false;
                 }
-                else
+                if (wasConnected == false)
                 {
                     offlineTicks = 0;
                 }
@@ -376,10 +385,12 @@ namespace Truck_Simulator_Tool_App
             jobInfoFreight.Text = resources.GetString(Resource.String.textView_jobInfoFreight);
             jobInfoMass.Text = resources.GetString(Resource.String.textView_jobInfoMass);
             jobInfoIncome.Text = resources.GetString(Resource.String.textView_jobInfoIncome);
-            //damage
+            progressBar_damage.SetProgress(0, false);
+            progressBarDamage.Text = resources.GetString(Resource.String.textView_progressBarDamage);
             source.Text = resources.GetString(Resource.String.textView_source);
             destination.Text = resources.GetString(Resource.String.textView_destination);
-            //distance
+            progressBar_distance.SetProgress(0, false);
+            progressBarDistance.Text = resources.GetString(Resource.String.textView_progressBarDistance);
             progressBarPercentage.Text = resources.GetString(Resource.String.textView_progressBarPercentage);
             timebuffer.Text = resources.GetString(Resource.String.textView_timebuffer);
             remainingDistance.Text = resources.GetString(Resource.String.textView_remainingDistance);
@@ -393,23 +404,6 @@ namespace Truck_Simulator_Tool_App
             msg.SetMessage(message);
             msg.SetPositiveButton("OK", (EventHandler<DialogClickEventArgs>)null);
             msg.Show();
-        }
-
-        private static void ImageView_CustomProgressBar(ImageView imageView, Color colorBack, double progress, string progressBarText, string font, Brush brushProgressColor)
-        {
-            double imageViewUnit = imageView.Width;
-            imageViewUnit /= 100;
-            Bitmap bitmap;
-            Graphics graphics;
-            bitmap = new Bitmap(imageView.Width, imageView.Height);
-            graphics = Graphics.FromImage(bitmap);
-            graphics.Clear(colorBack);
-            graphics.FillRectangle(brushProgressColor, new Rectangle(0, 0, (int)(imageViewUnit * progress), imageView.Height));
-            StringFormat stringFormat = new StringFormat
-            {
-                Alignment = StringAlignment.Center
-            };
-            graphics.DrawString(progressBarText, new Font(font, imageView.Height / 2), Brushes.Black, new PointF(imageView.Width / 2, imageView.Height / 10), stringFormat);
         }
     }
 }
