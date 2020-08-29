@@ -26,6 +26,7 @@
             public string destinationText { get; set; }
             public string progressBarPercentage { get; set; }
             public string timebufferText { get; set; }
+            public int[] timebufferArgb { get; set; }
             public string remainingDistanceText { get; set; }
             public string timescaleText { get; set; }
             public double pb_distanceProgress { get; set; }

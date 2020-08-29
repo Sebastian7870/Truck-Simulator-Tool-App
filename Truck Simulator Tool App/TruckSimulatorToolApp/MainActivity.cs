@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
@@ -75,6 +76,9 @@ namespace Truck_Simulator_Tool_App
         TextView progressBarDamage;
         TextView progressBarDistance;
 
+        PowerManager powerManager;
+        PowerManager.WakeLock wakeLock;
+        
         //Variables END
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -121,6 +125,9 @@ namespace Truck_Simulator_Tool_App
             nextShiftPause = FindViewById<TextView>(Resource.Id.textView_nextShiftPause);
             shiftTimeLeft = FindViewById<TextView>(Resource.Id.textView_shiftTimeLeft);
 
+
+            powerManager = (PowerManager)GetSystemService(PowerService);
+            wakeLock = powerManager.NewWakeLock(WakeLockFlags.ScreenBright, "TruckSimulatorTool");
             CreateToolbar();
         }
         private void CreateToolbar()
@@ -151,6 +158,8 @@ namespace Truck_Simulator_Tool_App
                 builder.SetTitle("IP Adresse");
 
                 EditText editText = new EditText(this);
+                if (settings.TSTServerIP != null)
+                    settings.TSTServerIP = String.Concat(settings.TSTServerIP.Where(c => !Char.IsWhiteSpace(c)));
                 editText.Text = settings.TSTServerIP;
                 builder.SetView(editText);
 
@@ -168,6 +177,7 @@ namespace Truck_Simulator_Tool_App
                 {
                     if (editText.Text != null && !editText.Text.Contains(":"))
                     {
+                        editText.Text = String.Concat(editText.Text.Where(c => !Char.IsWhiteSpace(c)));
                         settings.TSTServerIP = editText.Text;
                         Save_Settings();
                     }
@@ -189,6 +199,7 @@ namespace Truck_Simulator_Tool_App
         {
             base.OnStart();
 
+            wakeLock.Acquire();
             timer1.Start();
             timer1.Elapsed += Timer1_Elapsed;
         }
@@ -198,6 +209,7 @@ namespace Truck_Simulator_Tool_App
             base.OnStop();
 
             timer1.Stop();
+            wakeLock.Release();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -243,12 +255,12 @@ namespace Truck_Simulator_Tool_App
                 {
                     Show_AlertMessage(this, "Schwerwiegender Fehler gefunden!", "Fehler in der LoadCreate Settings Methode: DeserializeObject");
                     try { File.Delete(settingsPath); } catch { }
-                    settings.TSTServerIP = " ";
+                    settings.TSTServerIP = "";
                 }
             }
             else
             {
-                settings.TSTServerIP = " ";
+                settings.TSTServerIP = "";
             }
         }
 
@@ -264,14 +276,14 @@ namespace Truck_Simulator_Tool_App
                 }
                 else
                 {
-                    settings.TSTServerIP = " ";
+                    settings.TSTServerIP = "";
                     string json = JsonConvert.SerializeObject(settings);
                     File.WriteAllText(settingsPath, json);
                 }
             }
             catch
             {
-                settings.TSTServerIP = " ";
+                settings.TSTServerIP = "";
                 Show_AlertMessage(this, "Schwerwiegender Fehler gefunden!", "Fehler in der Save Settings Methode");
             }
         }
@@ -283,6 +295,8 @@ namespace Truck_Simulator_Tool_App
         }
         private async void Timer1_Tick()
         {
+
+
             await Update_TSTServerData();
             CreateToolbar();
 
@@ -317,6 +331,7 @@ namespace Truck_Simulator_Tool_App
                 source.Text = tst_serverdata.sourceText;
                 destination.Text = tst_serverdata.destinationText;
                 timebuffer.Text = tst_serverdata.timebufferText;
+                timebuffer.SetBackgroundColor(Android.Graphics.Color.Argb(tst_serverdata.timebufferArgb[0], tst_serverdata.timebufferArgb[1], tst_serverdata.timebufferArgb[2], tst_serverdata.timebufferArgb[3]));
                 remainingDistance.Text = tst_serverdata.remainingDistanceText;
                 timescale.Text = tst_serverdata.timescaleText;
 
@@ -393,6 +408,7 @@ namespace Truck_Simulator_Tool_App
             progressBarDistance.Text = resources.GetString(Resource.String.textView_progressBarDistance);
             progressBarPercentage.Text = resources.GetString(Resource.String.textView_progressBarPercentage);
             timebuffer.Text = resources.GetString(Resource.String.textView_timebuffer);
+            timebuffer.SetBackgroundColor(Android.Graphics.Color.Brown);
             remainingDistance.Text = resources.GetString(Resource.String.textView_remainingDistance);
             timescale.Text = resources.GetString(Resource.String.textView_timescale2);
         }
