@@ -139,7 +139,7 @@
             android:layout_marginBottom="1dp">
             <TextView
                 style="@style/Arrival_TextColumn"
-                android:text="Geplante Ankunft:" />
+                android:text="Beste Fahrzeit:" />
             <TextView
                 android:id="@+id/textView_bestArrival_dt"
                 style="@style/Arrival_DatetimeColumn"

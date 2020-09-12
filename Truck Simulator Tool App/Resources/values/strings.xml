@@ -11,7 +11,7 @@
   <string name="textView_currentArrival_ts">(0 Min.)</string>
   <string name="textView_currentBestArrival_dt">00:00 Uhr</string>
   <string name="textView_currentBestArrival_ts">(0 Min.)</string>
-  <string name="textView_bestArrival_dt">00:00 Uhr</string>
+  <string name="textView_bestArrival_dt">00:00 - 00:00 Uhr</string>
   <string name="textView_bestArrival_ts">(0 Min.)</string>
   <string name="textView_nextPauseTime">Pause in: 0 Min.</string>
   <string name="textView_remainingTime">Restzeit: 0 Min.</string>
