@@ -328,6 +328,7 @@ namespace Truck_Simulator_Tool_App
                 progressBarDamage.Text = tst_serverdata.pb_damageText;
                 progressBar_distance.SetProgress((int)(tst_serverdata.pb_distanceProgress), true);
                 progressBarDistance.Text = tst_serverdata.pb_distanceText;
+                progressBarPercentage.Text = tst_serverdata.progressBarPercentage;
                 source.Text = tst_serverdata.sourceText;
                 destination.Text = tst_serverdata.destinationText;
                 timebuffer.Text = tst_serverdata.timebufferText;

@@ -403,7 +403,7 @@
                     android:layout_width="0dp"
                     android:layout_columnWeight="58"
                     android:background="@color/Brown"
-                    android:textColor="@color/Gainsboro"
+                    android:textColor="@android:color/black"
                     android:gravity="center"
                     android:textAlignment="gravity"
                     android:layout_marginBottom="1dp"
