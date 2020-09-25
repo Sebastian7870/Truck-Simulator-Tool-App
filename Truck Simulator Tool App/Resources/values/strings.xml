@@ -30,6 +30,6 @@
   <string name="textView_nextShiftPause2">---</string>
   <string name="textView_shiftTimeLeft1">Übrige Schichtlänge:</string>
   <string name="textView_shiftTimeLeft2">---</string>
-  <string name="textView_progressBarDamage">0 %</string>
+  <string name="textView_progressBarDamage">0,0 %</string>
   <string name="textView_progressBarDistance">0 km   /   0 km</string>
 </resources>
