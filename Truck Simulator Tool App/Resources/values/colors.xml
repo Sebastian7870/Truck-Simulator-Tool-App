@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#153a6a</color>
     <color name="colorAccent">#ff33b5e5</color>
 
-    <color name="Brown">#A52A2A</color>
-    <color name="LimeGreen">#32CD32</color>
-    <color name="Gainsboro">#DCDCDC</color>
-    <color name="DarkGray">#A9A9A9</color>
+  <color name="Brown">#A52A2A</color>
+  <color name="LimeGreen">#32CD32</color>
+  <color name="Gainsboro">#DCDCDC</color>
+  <color name="DarkGray">#A9A9A9</color>
 </resources>

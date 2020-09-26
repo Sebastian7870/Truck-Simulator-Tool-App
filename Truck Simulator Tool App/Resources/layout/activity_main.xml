@@ -432,60 +432,62 @@
         android:layout_height="0dp"
         android:layout_weight="20" >
     </Space>
-    
-    <GridLayout 
+
+    <GridLayout
         android:id="@+id/gridLayout_bottomData"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="95"
-        android:background="@drawable/Border2"
+        android:background="@color/DarkGray"
         android:rowCount="2"
         android:columnCount="1">
         <TextView
-        android:id="@+id/textView_nextShiftEvent"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="1dp"
-        android:background="@color/DarkGray"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_rowWeight="3"
-        android:textStyle="bold"
-        android:gravity="center" 
-        android:textAlignment="gravity"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="1dp"
-        android:text="@string/textView_nextShiftEvent" />
-        <GridLayout 
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_rowWeight="6"
-        android:background="@color/Gainsboro"  
-        android:rowCount="2"
-        android:columnCount="2">
-        <TextView
-            style="@style/MiscInfo_Text"
-            android:gravity="left"    
-            android:layout_marginLeft="3dp"                
-            android:text="@string/textView_nextShiftPause1" />
-        <TextView
-            android:id="@+id/textView_nextShiftPause"
-            style="@style/MiscInfo_Text"
-            android:gravity="right"  
-            android:layout_marginRight="3dp"
-            android:text="@string/textView_nextShiftPause2" />
-        <TextView
-            style="@style/MiscInfo_Text"
-            android:layout_marginLeft="3dp"  
-            android:gravity="left"    
-            android:text="@string/textView_shiftTimeLeft1" />
-        <TextView
-            android:id="@+id/textView_shiftTimeLeft"
-            style="@style/MiscInfo_Text"
-            android:layout_marginRight="3dp"
-            android:gravity="right"        
-            android:text="@string/textView_shiftTimeLeft2" />
-        </GridLayout>   
+            android:id="@+id/textView_nextShiftEvent"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="3"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="1dp"
+            android:text="@string/textView_nextShiftEvent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp" />
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="6"
+            android:background="@color/Gainsboro"
+            android:rowCount="2"
+            android:columnCount="2">
+            <TextView
+                style="@style/MiscInfo_Text"
+                android:gravity="left"
+                android:layout_marginLeft="3dp"
+                android:text="@string/textView_nextShiftPause1" />
+            <TextView
+                android:id="@+id/textView_nextShiftPause"
+                style="@style/MiscInfo_Text"
+                android:gravity="right"
+                android:layout_marginRight="3dp"
+                android:text="@string/textView_nextShiftPause2" />
+            <TextView
+                style="@style/MiscInfo_Text"
+                android:layout_marginLeft="3dp"
+                android:gravity="left"
+                android:text="@string/textView_shiftTimeLeft1" />
+            <TextView
+                android:id="@+id/textView_shiftTimeLeft"
+                style="@style/MiscInfo_Text"
+                android:layout_marginRight="3dp"
+                android:gravity="right"
+                android:text="@string/textView_shiftTimeLeft2" />
+        </GridLayout>
     </GridLayout>
 
     <GridLayout

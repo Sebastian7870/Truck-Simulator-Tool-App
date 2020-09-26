@@ -1,27 +1,15 @@
 ﻿using Android.App;
-using Android.Bluetooth.LE;
 using Android.Content;
-using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.View;
 using Android.Support.V7.App;
-using Android.Support.V7.View.Menu;
-using Android.Support.V7.Widget;
-using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
-using Org.Apache.Http;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
-using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Timers;
 using Xamarin.Essentials;
@@ -78,22 +66,22 @@ namespace Truck_Simulator_Tool_App
 
         PowerManager powerManager;
         PowerManager.WakeLock wakeLock;
-        
+
         //Variables END
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            
+
             LoadCreate_Settings();
-            
+
             SetContentView(Resource.Layout.activity_main);
 
             connectionStatus = FindViewById<TextView>(Resource.Id.textView_connectionStatus);
             contractStatus = FindViewById<TextView>(Resource.Id.textView_contractStatus);
             shiftStatus = FindViewById<TextView>(Resource.Id.textView_shiftStatus);
             currentArrival_dt = FindViewById<TextView>(Resource.Id.textView_currentArrival_dt);
-            currentArrival_ts =  FindViewById<TextView>(Resource.Id.textView_currentArrival_ts);
+            currentArrival_ts = FindViewById<TextView>(Resource.Id.textView_currentArrival_ts);
             currentBestArrival_dt = FindViewById<TextView>(Resource.Id.textView_currentBestArrival_dt);
             currentBestArrival_ts = FindViewById<TextView>(Resource.Id.textView_currentBestArrival_ts);
             bestArrival_dt = FindViewById<TextView>(Resource.Id.textView_bestArrival_dt);
@@ -340,6 +328,10 @@ namespace Truck_Simulator_Tool_App
                 {
                     gridLayout_bottomData.Visibility = ViewStates.Visible;
                     nextShiftEvent.Text = tst_serverdata.nextShiftEvent;
+                    if (tst_serverdata.nextShiftEventBrush != "#00FFFFFF")
+                        gridLayout_bottomData.SetBackgroundColor(Android.Graphics.Color.ParseColor(tst_serverdata.nextShiftEventBrush));
+                    else
+                        gridLayout_bottomData.SetBackgroundResource(Resource.Color.DarkGray);
                     nextShiftPause.Text = tst_serverdata.nextShiftPause;
                     shiftTimeLeft.Text = tst_serverdata.shiftTimeLeft;
                 }
@@ -363,6 +355,8 @@ namespace Truck_Simulator_Tool_App
                 if (wasConnected == false)
                 {
                     offlineTicks = 0;
+                    ResetBottomlinearLayout();
+                    SetStandardValues();
                 }
             }
         }
@@ -371,6 +365,7 @@ namespace Truck_Simulator_Tool_App
         {
             Android.Content.Res.Resources resources = this.Resources;
             nextShiftEvent.Text = resources.GetString(Resource.String.textView_nextShiftEvent);
+            gridLayout_bottomData.SetBackgroundResource(Resource.Color.DarkGray);
             nextShiftPause.Text = resources.GetString(Resource.String.textView_nextShiftPause2);
             shiftTimeLeft.Text = resources.GetString(Resource.String.textView_shiftTimeLeft2);
             gridLayout_bottomData.Visibility = ViewStates.Gone;
@@ -382,22 +377,22 @@ namespace Truck_Simulator_Tool_App
         {
             Android.Content.Res.Resources resources = this.Resources;
             connectionStatus.Text = resources.GetString(Resource.String.textView_connectionStatus);
-            linearLayout_connectionStatus.SetBackgroundColor(Android.Graphics.Color.Brown);
+            linearLayout_connectionStatus.SetBackgroundResource(Resource.Color.Brown);
             contractStatus.Text = resources.GetString(Resource.String.textView_contractStatus);
-            linearLayout_contractStatus.SetBackgroundColor(Android.Graphics.Color.Brown);
+            linearLayout_contractStatus.SetBackgroundResource(Resource.Color.Brown);
             shiftStatus.Text = resources.GetString(Resource.String.textView_shiftStatus);
-            linearLayout_shiftStatus.SetBackgroundColor(Android.Graphics.Color.Brown);
+            linearLayout_shiftStatus.SetBackgroundResource(Resource.Color.Brown);
             currentArrival_dt.Text = resources.GetString(Resource.String.textView_currentArrival_dt);
             currentArrival_ts.Text = resources.GetString(Resource.String.textView_currentArrival_ts);
-            gridLayout_currentArrival.SetBackgroundColor(Android.Graphics.Color.Brown);
+            gridLayout_currentArrival.SetBackgroundResource(Resource.Color.Brown);
             currentBestArrival_dt.Text = resources.GetString(Resource.String.textView_currentBestArrival_dt);
             currentBestArrival_ts.Text = resources.GetString(Resource.String.textView_currentBestArrival_ts);
             bestArrival_dt.Text = resources.GetString(Resource.String.textView_bestArrival_dt);
             bestArrival_ts.Text = resources.GetString(Resource.String.textView_bestArrival_ts);
             nextPauseTime.Text = resources.GetString(Resource.String.textView_nextPauseTime);
-            nextPauseTime.SetTextColor(Android.Graphics.Color.Brown);
+            nextPauseTime.SetTextColor(new Android.Graphics.Color(Android.Support.V4.Content.ContextCompat.GetColor(this, Resource.Color.Brown)));
             remainingTime.Text = resources.GetString(Resource.String.textView_remainingTime);
-            remainingTime.SetTextColor(Android.Graphics.Color.Brown);
+            remainingTime.SetTextColor(new Android.Graphics.Color(Android.Support.V4.Content.ContextCompat.GetColor(this, Resource.Color.Brown)));
             jobInfoFreight.Text = resources.GetString(Resource.String.textView_jobInfoFreight);
             jobInfoMass.Text = resources.GetString(Resource.String.textView_jobInfoMass);
             jobInfoIncome.Text = resources.GetString(Resource.String.textView_jobInfoIncome);
@@ -409,7 +404,7 @@ namespace Truck_Simulator_Tool_App
             progressBarDistance.Text = resources.GetString(Resource.String.textView_progressBarDistance);
             progressBarPercentage.Text = resources.GetString(Resource.String.textView_progressBarPercentage);
             timebuffer.Text = resources.GetString(Resource.String.textView_timebuffer);
-            timebuffer.SetBackgroundColor(Android.Graphics.Color.Brown);
+            timebuffer.SetBackgroundResource(Resource.Color.Brown);
             remainingDistance.Text = resources.GetString(Resource.String.textView_remainingDistance);
             timescale.Text = resources.GetString(Resource.String.textView_timescale2);
         }
