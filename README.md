@@ -8,7 +8,7 @@ The App deserializes a .json file of server data recieved from the Truck Simulat
 
 # Preview
 
-![Screenshot of the Application](github_preview1.png)
+![Screenshot of the Application](github_preview1.jpg)
 
 <br>
 
